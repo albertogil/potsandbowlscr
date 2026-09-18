@@ -19,5 +19,8 @@ Open `http://127.0.0.1:8080`.
 
 ## Migration status
 
-The home page and the currently public menu URLs are represented here. Menu details and original photographs will be brought over from a verified WordPress export and media inventory before launch. WordPress remains live until final approval.
+The home page, original photographs, and current public menu URLs are represented here. The current menus are retained as optimized visual menus; a future content pass can transcribe them into searchable HTML. WordPress remains live until final approval.
 
+## Redirects
+
+`redirects.csv` is the reviewed redirect inventory. `.htaccess` applies its permanent redirects at DreamHost as part of the final cutover, so old WordPress links keep working after the static files replace WordPress.

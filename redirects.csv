@@ -1,0 +1,11 @@
+old_url,new_url,behavior,source
+/,/,served directly,WordPress published page 6
+/menu/,/#menus,301,WordPress published page 32
+/menu/las-catalinas/,/menu/las-catalinas/,served directly,WordPress published page 838
+/menu/playa-grande/,/menu/playa-grande/,served directly,WordPress published page 840
+/menu/menu-pizza/,/menu/menu-pizza/,served directly,WordPress published page 878
+/?page_id=6,/,301,legacy WordPress link
+/?page_id=32,/#menus,301,legacy WordPress link
+/?page_id=838,/menu/las-catalinas/,301,legacy WordPress link
+/?page_id=840,/menu/playa-grande/,301,legacy WordPress link
+/?page_id=878,/menu/menu-pizza/,301,legacy WordPress link
