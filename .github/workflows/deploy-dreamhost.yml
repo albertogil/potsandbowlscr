@@ -1,0 +1,29 @@
+name: Deploy static site to DreamHost
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: potsandbowlscr-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deploy key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.DREAMHOST_SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+      - name: Trust DreamHost host key
+        run: ssh-keyscan -H "${{ secrets.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
+      - name: Deploy
+        run: |
+          rsync -avz --itemize-changes --exclude '.git/' --exclude '.github/' --exclude '.DS_Store' --exclude 'README.md' \
+            -e 'ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o BatchMode=yes' \
+            ./ "${{ secrets.DREAMHOST_USER }}@${{ secrets.DREAMHOST_HOST }}:${{ secrets.DREAMHOST_PATH }}/"
