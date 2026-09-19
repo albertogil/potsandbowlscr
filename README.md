@@ -40,7 +40,7 @@ Google Search Console uses the URL-prefix property `https://www.potsandbowlscr.c
 
 ## Analytics
 
-Google Analytics 4 property: **Pots & Bowls**. Measurement ID: `G-0P83R9X73T`. The Google tag is installed in every public HTML page; retain it when editing. Enhanced measurement is enabled. Do not send personal information through page URLs, forms, or Analytics events.
+Google Analytics 4 property: **Pots & Bowls**. Measurement ID: `G-0P83R9X73T`. `assets/js/analytics.js` loads the Google tag only after a visitor accepts analytics; keep its matching measurement-ID meta tag on indexable pages. Enhanced measurement is enabled. Do not send personal information through page URLs, forms, or Analytics events.
 
 ## Redirects
 
