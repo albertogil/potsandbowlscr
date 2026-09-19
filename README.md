@@ -19,7 +19,20 @@ Open `http://127.0.0.1:8080`.
 
 ## Migration status
 
-The home page, original photographs, and current public menu URLs are represented here. The current menus are retained as optimized visual menus; a future content pass can transcribe them into searchable HTML. WordPress remains live until final approval.
+The home page, original photographs, and current public menu URLs are represented here. The current menus are retained as optimized visual menus; a future content pass can transcribe them into searchable HTML. The static site is live on DreamHost.
+
+## DreamHost deployment
+
+This repository has its **own DreamHost SSH user and document root**. Do not reuse the Pascual SSH user, path, or GitHub secrets.
+
+The following repository-scoped GitHub Actions secrets are configured under **Settings → Secrets and variables → Actions** in `albertogil/potsandbowlscr`:
+
+- `DREAMHOST_SSH_PRIVATE_KEY`
+- `DREAMHOST_HOST`
+- `DREAMHOST_USER`
+- `DREAMHOST_PATH`
+
+Secret values must never be committed or copied into another repository. To publish an approved update, open **Actions → Deploy static site to DreamHost → Run workflow**. The workflow runs only on manual dispatch and uploads the static files from `main`.
 
 ## Redirects
 
