@@ -13,16 +13,16 @@ RewriteRule ^menu/?$ /#menus [R=301,L,NE]
 # Legacy WordPress page-ID links. Keep these until Search Console shows they
 # are no longer requested.
 RewriteCond %{QUERY_STRING} (^|&)page_id=6(&|$) [NC]
-RewriteRule ^$ / [R=301,L]
+RewriteRule ^$ / [R=301,L,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=32(&|$) [NC]
-RewriteRule ^$ /#menus [R=301,L,NE]
+RewriteRule ^$ /#menus [R=301,L,NE,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=838(&|$) [NC]
-RewriteRule ^$ /menu/las-catalinas/ [R=301,L]
+RewriteRule ^$ /menu/las-catalinas/ [R=301,L,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=840(&|$) [NC]
-RewriteRule ^$ /menu/playa-grande/ [R=301,L]
+RewriteRule ^$ /menu/playa-grande/ [R=301,L,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=878(&|$) [NC]
-RewriteRule ^$ /menu/menu-pizza/ [R=301,L]
+RewriteRule ^$ /menu/menu-pizza/ [R=301,L,QSD]
