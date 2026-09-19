@@ -38,6 +38,10 @@ Secret values must never be committed or copied into another repository. To publ
 
 Google Search Console uses the URL-prefix property `https://www.potsandbowlscr.com/`. Keep the `google-site-verification` meta tag in `index.html` when editing the page. The submitted sitemap is `sitemap.xml`.
 
+## Analytics
+
+Google Analytics 4 property: **Pots & Bowls**. Measurement ID: `G-0P83R9X73T`. The Google tag is installed in every public HTML page; retain it when editing. Enhanced measurement is enabled. Do not send personal information through page URLs, forms, or Analytics events.
+
 ## Redirects
 
 `redirects.csv` is the reviewed redirect inventory. `.htaccess` applies its permanent redirects at DreamHost as part of the final cutover, so old WordPress links keep working after the static files replace WordPress.
