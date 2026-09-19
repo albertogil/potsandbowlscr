@@ -34,6 +34,10 @@ The following repository-scoped GitHub Actions secrets are configured under **Se
 
 Secret values must never be committed or copied into another repository. To publish an approved update, open **Actions → Deploy static site to DreamHost → Run workflow**. The workflow runs only on manual dispatch and uploads the static files from `main`.
 
+## Search Console
+
+Google Search Console uses the URL-prefix property `https://www.potsandbowlscr.com/`. Keep the `google-site-verification` meta tag in `index.html` when editing the page. The submitted sitemap is `sitemap.xml`.
+
 ## Redirects
 
 `redirects.csv` is the reviewed redirect inventory. `.htaccess` applies its permanent redirects at DreamHost as part of the final cutover, so old WordPress links keep working after the static files replace WordPress.
