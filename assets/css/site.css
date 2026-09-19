@@ -1,4 +1,4 @@
-:root { --ink:#193b36; --paper:#f7f1e6; --sun:#e5b83f; --clay:#bc5c45; --leaf:#86a45c; --line:rgba(25,59,54,.18); }
+:root { --ink:#193b36; --paper:#f7f1e6; --sun:#e5b83f; --clay:#b14f3a; --leaf:#86a45c; --line:rgba(25,59,54,.18); }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--paper); color:var(--ink); font:400 16px/1.55 ui-rounded, "Avenir Next", Avenir, "Helvetica Neue", sans-serif; }
