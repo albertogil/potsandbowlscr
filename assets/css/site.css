@@ -7,15 +7,15 @@ h1,h2,h3,h4,p { margin-top:0; }
 h1,h2,h3,h4 { color:var(--ink); font-family:Montserrat,Arial,sans-serif; line-height:1.2; }
 .skip-link { background:#000; color:#fff; left:1rem; padding:.75rem 1rem; position:absolute; top:-4rem; z-index:20; }
 .skip-link:focus { top:1rem; }
-.site-header { align-items:center; background:#fff; display:flex; height:166px; justify-content:center; padding:20px; }
+.site-header { align-items:center; display:flex; height:170px; justify-content:center; padding:20px; position:absolute; width:100%; z-index:2; }
 .brand { display:block; line-height:0; }
 .brand img { display:block; height:auto; max-width:308px; width:100%; }
-.hero { background:linear-gradient(#0000006e,#0000006e),url('/assets/images/home-food-table.webp') center/cover fixed; color:#fff; min-height:920px; padding:200px 25px 0; }
+.hero { background:linear-gradient(#0000006e,#0000006e),url('/assets/images/home-food-table.webp') center/cover fixed; color:#fff; min-height:732px; padding:200px 25px 0; }
 .hero-content { margin:auto; max-width:950px; text-align:center; }
-.hero-welcome { color:var(--cream); font-size:1.25rem; font-weight:300; line-height:1.3; margin-bottom:15px; }
-.hero h1 { color:var(--cream); font-size:clamp(2.1rem,5vw,4.67rem); font-weight:600; letter-spacing:.32rem; margin:0 0 25px; text-transform:uppercase; }
+.hero-welcome { color:var(--cream); font-size:1.9rem; font-weight:300; line-height:1.3; margin-bottom:22px; }
+.hero h1 { color:var(--cream); font-size:1.08rem; font-weight:600; letter-spacing:.35rem; margin:0 0 34px; text-transform:uppercase; }
 .hero-actions { display:grid; gap:10px; justify-content:center; }
-.hero-actions a { background:#000; border-radius:3px; color:#fff; font-size:.75rem; letter-spacing:.26rem; padding:10px 20px; text-decoration:none; text-transform:uppercase; }
+.hero-actions a { background:#000; border-radius:3px; color:#fff; font-size:.75rem; letter-spacing:.26rem; min-width:307px; padding:14px 20px; text-decoration:none; text-transform:uppercase; }
 .hero-actions a:hover,.hero-actions a:focus { background:#fff; color:#999; }
 .scroll-down { color:#fff; display:inline-block; font-size:2.1rem; line-height:1; margin-top:190px; text-decoration:none; }
 .section { margin:auto; max-width:900px; padding:150px 0; }
@@ -57,4 +57,4 @@ h1,h2,h3,h4 { color:var(--ink); font-family:Montserrat,Arial,sans-serif; line-he
 .menu-pages { display:grid; gap:1.5rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
 .menu-pages img { display:block; height:auto; width:100%; }
 @media (max-width:1024px) { .hero { background-attachment:scroll; min-height:740px; padding-top:200px; } .scroll-down { margin-top:100px; } .section { padding:100px 25px; } .shop-section { background-attachment:scroll; padding:100px 50px; } .shop-content { gap:45px; } .shop-list { padding-right:0; } }
-@media (max-width:767px) { .site-header { height:166px; } .brand img { max-width:260px; } .hero { min-height:660px; padding:150px 20px 0; } .hero h1 { letter-spacing:.12rem; } .hero-actions a { font-size:.68rem; letter-spacing:.17rem; } .scroll-down { margin-top:75px; } .section { padding:75px 20px; } .shop-section { padding:75px 20px; } .shop-content,.events-section { grid-template-columns:1fr; } .shop-content { gap:40px; } .events-copy { padding:70px 50px 25px; } .events-section img { height:273px; } .locations { padding-bottom:60px; } .site-footer { grid-template-columns:1fr; gap:45px; padding:60px 25px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:.6rem; margin-top:10px; } .menu-page { padding-inline:15px; } .menu-page header { margin-inline:-15px; } .menu-pages { grid-template-columns:1fr; } }
+@media (max-width:767px) { .site-header { height:130px; } .brand img { max-width:170px; } .hero { min-height:660px; padding:150px 20px 0; } .hero-welcome { font-size:1.45rem; margin-bottom:16px; } .hero h1 { font-size:.86rem; letter-spacing:.19rem; margin-bottom:22px; } .hero-actions a { font-size:.68rem; letter-spacing:.17rem; min-width:0; padding:12px 18px; } .scroll-down { margin-top:75px; } .section { padding:75px 20px; } .shop-section { padding:75px 20px; } .shop-content,.events-section { grid-template-columns:1fr; } .shop-content { gap:40px; } .events-copy { padding:70px 50px 25px; } .events-section img { height:273px; } .locations { padding-bottom:60px; } .site-footer { grid-template-columns:1fr; gap:45px; padding:60px 25px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:.6rem; margin-top:10px; } .menu-page { padding-inline:15px; } .menu-page header { margin-inline:-15px; } .menu-pages { grid-template-columns:1fr; } }
