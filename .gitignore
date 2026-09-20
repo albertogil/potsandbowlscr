@@ -1,4 +1,5 @@
 .DS_Store
+.migration-source/
 .env
 .env.*
 !.env.example
