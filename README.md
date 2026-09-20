@@ -42,6 +42,22 @@ Google Search Console uses the URL-prefix property `https://www.potsandbowlscr.c
 
 Google Analytics 4 property: **Pots & Bowls**. Measurement ID: `G-0P83R9X73T`. `assets/js/analytics.js` loads the Google tag only after a visitor accepts analytics; keep its matching measurement-ID meta tag on indexable pages. Enhanced measurement is enabled. Do not send personal information through page URLs, forms, or Analytics events.
 
+## Current production setup
+
+- **Hosting:** DreamHost serves the live static site. GitHub stores the source; GitHub Pages is not used because DreamHost handles the custom domain and Apache redirects.
+- **Deployment:** Push approved changes to `main`, then manually run **Actions → Deploy static site to DreamHost → Run workflow**. The workflow uses this repository’s own DreamHost secrets and deliberately does not delete unspecified remote files.
+- **Search:** Google Search Console and Bing Webmaster Tools are configured for `https://www.potsandbowlscr.com/`; both use the production sitemap. Retain `robots.txt`, `sitemap.xml`, canonical tags, and the Search Console verification tag.
+- **SEO:** Indexable pages have titles, descriptions, canonical URLs, Open Graph/Twitter metadata, image alternatives, and Organization/Restaurant JSON-LD structured data for both locations. Google Rich Results Test found 5 valid eligible items on 2026-09-20.
+- **Privacy:** The visitor consent notice controls Analytics loading. `/privacy/` is intentionally `noindex`.
+- **Performance:** The 2026-09-19 desktop Lighthouse baseline was 97 performance / 95 accessibility / 100 best practices / 100 SEO. After the color adjustment, the 2026-09-20 accessibility follow-up reached 100 with no weighted findings.
+
+### Remaining follow-up
+
+- Add exact street addresses, hours, reservation links, price range, and Google Business Profile URLs before enriching the local-business listings.
+- Confirm the current menus, then transcribe the visual menu pages into accessible, searchable HTML while retaining the images.
+- Choose an encrypted offsite destination before creating the legacy WordPress archive.
+- Review GA4 and Search Console after real visitor traffic has accumulated.
+
 ## Redirects
 
 `redirects.csv` is the reviewed redirect inventory. `.htaccess` applies its permanent redirects at DreamHost as part of the final cutover, so old WordPress links keep working after the static files replace WordPress.
