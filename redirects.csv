@@ -1,6 +1,7 @@
 old_url,new_url,behavior,source
 /,/,served directly,WordPress published page 6
 /menu/,/#menus,301,WordPress published page 32
+/en/,/,301,English is the canonical default language
 /menu/las-catalinas/,/menu/las-catalinas/,served directly,WordPress published page 838
 /menu/playa-grande/,/menu/playa-grande/,served directly,WordPress published page 840
 /menu/menu-pizza/,/menu/menu-pizza/,served directly,WordPress published page 878

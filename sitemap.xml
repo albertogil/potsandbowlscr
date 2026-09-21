@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.potsandbowlscr.com/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/locations/playa-grande/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/ubicaciones/playa-grande/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/locations/las-catalinas/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/ubicaciones/las-catalinas/</loc></url>
   <url><loc>https://www.potsandbowlscr.com/menu/playa-grande/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/menu/playa-grande/</loc></url>
   <url><loc>https://www.potsandbowlscr.com/menu/las-catalinas/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/menu/las-catalinas/</loc></url>
   <url><loc>https://www.potsandbowlscr.com/menu/menu-pizza/</loc></url>
+  <url><loc>https://www.potsandbowlscr.com/es/menu/pizzas/</loc></url>
 </urlset>
