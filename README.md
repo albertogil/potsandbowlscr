@@ -19,9 +19,9 @@ Open `http://127.0.0.1:8080`.
 
 ## Migration status
 
-The home page, original photographs, and current public menu URLs are represented here. The 2026 Playa Grande and Las Catalinas menus are searchable HTML in both English and Spanish, with optimized visual references for each language. The static site is live on DreamHost.
+The home page, original photographs, and the two restaurant menus are represented here. The 2026 Playa Grande and Las Catalinas menus are searchable HTML in both English and Spanish, with optimized visual references for each language. The static site is live on DreamHost. The former standalone pizza URLs permanently redirect to the location chooser on the home page.
 
-The menu content and location-specific prices are maintained in `assets/js/location-menu-2026.js`. The eight `assets/images/menu-2026-*.webp` files were rendered from the bilingual 2026 menu PDFs (English food/drinks, then Spanish food/drinks). Keep the HTML entries and visual references in sync when prices or dishes change.
+The menu content, pizza collaboration, and location-specific prices are maintained in `assets/js/location-menu-2026.js`. The eight `assets/images/menu-2026-*.webp` files were rendered from the bilingual 2026 menu PDFs (English food/drinks, then Spanish food/drinks); `menu-pizza-1.webp` and `menu-pizza-2.webp` are the Spanish and English pizza references. Keep the HTML entries and visual references in sync when prices or dishes change.
 
 ## DreamHost deployment
 

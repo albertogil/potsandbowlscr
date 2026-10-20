@@ -8,7 +8,11 @@ RewriteCond %{HTTP_HOST} !^www\.potsandbowlscr\.com$ [NC]
 RewriteRule ^ https://www.potsandbowlscr.com%{REQUEST_URI} [R=301,L]
 
 # Legacy public menu route.
-RewriteRule ^menu/?$ /#menus [R=301,L,NE]
+RewriteRule ^menu/?$ /#locations-title [R=301,L,NE]
+
+# The former standalone pizza menu is now included in each restaurant menu.
+RewriteRule ^menu/menu-pizza/?$ /#locations-title [R=301,L,NE]
+RewriteRule ^es/menu/pizzas/?$ /es/#locations-title [R=301,L,NE]
 
 # English is the default language, so an accidental /en/ URL never creates a
 # duplicate version of the homepage.
@@ -20,7 +24,7 @@ RewriteCond %{QUERY_STRING} (^|&)page_id=6(&|$) [NC]
 RewriteRule ^$ / [R=301,L,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=32(&|$) [NC]
-RewriteRule ^$ /#menus [R=301,L,NE,QSD]
+RewriteRule ^$ /#locations-title [R=301,L,NE,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=838(&|$) [NC]
 RewriteRule ^$ /menu/las-catalinas/ [R=301,L,QSD]
@@ -29,4 +33,4 @@ RewriteCond %{QUERY_STRING} (^|&)page_id=840(&|$) [NC]
 RewriteRule ^$ /menu/playa-grande/ [R=301,L,QSD]
 
 RewriteCond %{QUERY_STRING} (^|&)page_id=878(&|$) [NC]
-RewriteRule ^$ /menu/menu-pizza/ [R=301,L,QSD]
+RewriteRule ^$ /#locations-title [R=301,L,NE,QSD]

@@ -1,4 +1,4 @@
-// Source: the bilingual 2026 Playa Grande and Las Catalinas menu PDFs.
+// Sources: the bilingual 2026 location menu PDFs and the Pots & Bowls × Pascual pizza menu images.
 // Each row carries the printed English/Spanish text and the two location prices.
 const row = (en, es, enDescription, esDescription, playa, catalinas, flags = "", catalinasSpanishPrice = null, catalinasText = {}) =>
   ({ en, es, enDescription, esDescription, playa, catalinas, flags, catalinasSpanishPrice, catalinasText });
@@ -58,6 +58,15 @@ const foodSections = [
     row("Bacon", "Tocineta", "", "", 1600, 1800),
     row("Gluten Free Bread", "Pan Gluten Free", "", "", 1600, 2200),
     row("Extra Egg", "Extra de Huevo", "", "", 500, 500)
+  ] },
+  { en: "Summer oven by Pascual", es: "Horno de verano por Pascual", enNote: "An exclusive pizza collaboration with Pascual.", esNote: "Una colaboración especial de pizzas con Pascual.", items: [
+    row("Margarita", "Margarita", "Tomato sauce, mozzarella, basil and extra-virgin olive oil.", "Salsa de tomate, mozzarella, albahaca y aceite de oliva extra virgen.", 8800, 8800),
+    row("Pepperoni", "Pepperoni", "Tomato sauce, mozzarella and crispy pepperoni.", "Salsa de tomate, mozzarella y pepperoni crispy.", 9900, 9900),
+    row("Funghi", "Funghi", "Tomato sauce, mozzarella and fresh mushrooms.", "Salsa de tomate, mozzarella y hongos frescos.", 9460, 9460),
+    row("Funghi & Ham", "Funghi & Jamón", "Tomato sauce, mozzarella, fresh mushrooms and ham.", "Salsa de tomate, mozzarella, hongos frescos y jamón.", 10080, 10080),
+    row("Burrata", "Burrata", "Tomato sauce, fresh burrata and basil.", "Salsa de tomate, burrata fresca y albahaca.", 11990, 11990),
+    row("Shrimp & Parmigiano", "Camarón & Parmesano", "Garlic-butter shrimp, onion and Parmesan cheese.", "Camarones en mantequilla de ajo, cebolla y queso parmesano.", 13750, 13750, "★"),
+    row("Dipping sauces", "Salsas para dipear", "Homemade aioli · Hot honey · Garlic butter", "Aioli casero · Miel picante · Mantequilla de ajo", 900, 900)
   ] }
 ];
 
