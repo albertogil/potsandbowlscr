@@ -86,7 +86,14 @@ h1,h2,h3,h4 { color:var(--ink); font-family:Montserrat,Arial,sans-serif; line-he
 .menu-item-price { font-variant-numeric:tabular-nums; white-space:nowrap; }
 .menu-item p { font-size:.92rem; line-height:1.45; margin:.28rem 0 0; }
 .menu-section-note { font-size:.9rem; margin:-.5rem 0 1rem; }
-.menu-legend { font-size:.82rem; margin:0 0 1.5rem; }
+.menu-filters { align-items:center; display:flex; flex-wrap:wrap; gap:.6rem; margin:0 0 .5rem; }
+.menu-filters-label { font-size:.88rem; font-weight:600; margin-right:.3rem; }
+.menu-filters button { background:#fff; border:1px solid var(--clay); border-radius:999px; color:var(--dark); cursor:pointer; font:inherit; font-size:.82rem; line-height:1.25; padding:.55rem .9rem; }
+.menu-filters button:hover,.menu-filters button:focus-visible { background:var(--cream); }
+.menu-filters button:focus-visible { outline:2px solid var(--dark); outline-offset:2px; }
+.menu-filters button[aria-pressed="true"] { background:var(--clay); color:var(--dark); font-weight:700; }
+.menu-filter-status { font-size:.82rem; margin:0 0 1.5rem; }
+.menu-item[hidden],.menu-section[hidden],.menu-sheet[hidden] { display:none; }
 .menu-badge { border:1px solid currentColor; border-radius:50%; display:inline-block; font-size:.62rem; font-weight:700; height:1.15rem; line-height:1.05rem; margin-left:.25rem; text-align:center; vertical-align:middle; width:1.15rem; }
 .menu-note { border-top:1px solid var(--clay); font-size:.85rem; margin-top:2rem; padding-top:1rem; text-align:center; }
 .menu-sheet + .menu-sheet { margin-top:4rem; }

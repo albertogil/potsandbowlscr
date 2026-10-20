@@ -59,7 +59,7 @@ const foodSections = [
     row("Gluten Free Bread", "Pan Gluten Free", "", "", 1600, 2200),
     row("Extra Egg", "Extra de Huevo", "", "", 500, 500)
   ] },
-  { en: "Summer oven by Pascual", es: "Horno de verano por Pascual", enNote: "An exclusive pizza collaboration with Pascual.", esNote: "Una colaboración especial de pizzas con Pascual.", items: [
+  { en: "Pizzas", es: "Pizzas", items: [
     row("Margarita", "Margarita", "Tomato sauce, mozzarella, basil and extra-virgin olive oil.", "Salsa de tomate, mozzarella, albahaca y aceite de oliva extra virgen.", 8800, 8800),
     row("Pepperoni", "Pepperoni", "Tomato sauce, mozzarella and crispy pepperoni.", "Salsa de tomate, mozzarella y pepperoni crispy.", 9900, 9900),
     row("Funghi", "Funghi", "Tomato sauce, mozzarella and fresh mushrooms.", "Salsa de tomate, mozzarella y hongos frescos.", 9460, 9460),
@@ -172,7 +172,7 @@ if (root) {
     const description = catalinas && item.catalinasText[spanish ? "esDescription" : "enDescription"] || (spanish ? item.esDescription : item.enDescription);
     const badges = [...item.flags].map(flag => '<span class="menu-badge" title="' + escapeHtml(flags[flag][spanish ? 1 : 0]) + '" aria-label="' + escapeHtml(flags[flag][spanish ? 1 : 0]) + '">' + flag.toUpperCase() + "</span>").join("");
     const name = catalinas && item.catalinasText.name ? item.catalinasText.name : (spanish ? item.es : item.en);
-    return '<article class="menu-item"><h4><span class="menu-item-name">' + escapeHtml(name) + badges + '</span>' + (printedPrice == null ? "" : '<span class="menu-item-price">' + escapeHtml(price(printedPrice)) + "</span>") + "</h4>" + (description ? "<p>" + escapeHtml(description) + "</p>" : "") + "</article>";
+    return '<article class="menu-item" data-flags="' + escapeHtml(item.flags) + '"><h4><span class="menu-item-name">' + escapeHtml(name) + badges + '</span>' + (printedPrice == null ? "" : '<span class="menu-item-price">' + escapeHtml(price(printedPrice)) + "</span>") + "</h4>" + (description ? "<p>" + escapeHtml(description) + "</p>" : "") + "</article>";
   };
   const renderSection = section => '<section class="menu-section"><h3>' + escapeHtml(spanish ? section.es : section.en) + '</h3>' +
     (section.enNote ? '<p class="menu-section-note">' + escapeHtml(spanish ? section.esNote : section.enNote) + "</p>" : "") +
@@ -181,9 +181,37 @@ if (root) {
   const lead = spanish ? "Ingredientes frescos, hechos desde cero para nutrir cuerpo y alma" : "Fresh, from-scratch ingredients crafted to nourish both body and soul.";
   const footer = spanish ? "Alergias o restricciones por favor notificar a su salonero. Menú contiene trazas." : "*Allergies or restrictions please let your server know. Menu may have traces.";
   const tax = spanish ? "Precios incluyen 10% de servicio y 13% de IVA" : "Prices include 10% service & 13% IVA.";
-  const renderSheet = (sections, drinks) => '<div class="menu-sheet"><h2>' + escapeHtml(lead) + '</h2><p class="menu-legend">' +
-    Object.values(flags).slice(0, 3).map(label => escapeHtml(label[spanish ? 1 : 0])).join(" · ") +
-    '</p><div class="menu-sections">' + sections.map(renderSection).join("") + '</div>' +
+  const renderSheet = (sections, drinks) => '<div class="menu-sheet"><h2>' + escapeHtml(lead) + '</h2><div class="menu-sections">' + sections.map(renderSection).join("") + '</div>' +
     '<p class="menu-note">' + (drinks ? escapeHtml(tax) : escapeHtml(footer + " " + tax)) + "</p></div>";
-  root.innerHTML = renderSheet(foodSections, false) + renderSheet(drinkSections, true);
+  const filterLabels = spanish
+    ? { v: "Vegetariano / opción de hacerlo vegano", s: "Picante", g: "Gluten-friendly" }
+    : { v: "Vegetarian / option to make vegan", s: "Spicy", g: "Gluten-friendly" };
+  root.innerHTML = '<div class="menu-filters" role="group" aria-label="' + (spanish ? "Filtrar platos" : "Filter menu items") + '"><span class="menu-filters-label">' + (spanish ? "Filtrar por:" : "Filter by:") + '</span>' +
+    Object.entries(filterLabels).map(([flag, label]) => '<button type="button" data-menu-filter="' + flag + '" aria-pressed="false">' + escapeHtml(label) + '</button>').join("") +
+    '</div><p class="menu-filter-status" role="status" aria-live="polite"></p>' + renderSheet(foodSections, false) + renderSheet(drinkSections, true);
+  const buttons = [...root.querySelectorAll("[data-menu-filter]")];
+  const items = [...root.querySelectorAll(".menu-item")];
+  const status = root.querySelector(".menu-filter-status");
+  const applyFilters = () => {
+    const selected = buttons.filter(button => button.getAttribute("aria-pressed") === "true").map(button => button.dataset.menuFilter);
+    let visible = 0;
+    items.forEach(item => {
+      item.hidden = !selected.every(flag => item.dataset.flags.includes(flag));
+      if (!item.hidden) visible++;
+    });
+    root.querySelectorAll(".menu-section").forEach(section => {
+      section.hidden = !section.querySelector(".menu-item:not([hidden])");
+    });
+    root.querySelectorAll(".menu-sheet").forEach(sheet => {
+      sheet.hidden = !sheet.querySelector(".menu-item:not([hidden])");
+    });
+    status.textContent = selected.length
+      ? (visible ? (spanish ? `Mostrando ${visible} ${visible === 1 ? "opción" : "opciones"}.` : `Showing ${visible} ${visible === 1 ? "item" : "items"}.`) : (spanish ? "No hay opciones que coincidan con estos filtros." : "No items match these filters."))
+      : (spanish ? "Mostrando todo el menú." : "Showing the full menu.");
+  };
+  buttons.forEach(button => button.addEventListener("click", () => {
+    button.setAttribute("aria-pressed", String(button.getAttribute("aria-pressed") !== "true"));
+    applyFilters();
+  }));
+  applyFilters();
 }
