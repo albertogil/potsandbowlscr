@@ -27,7 +27,7 @@ const foodSections = [
     row("Tuna Crispy Rice Cakes", "Tostadas Crispy de Arroz con Atún", "Fried sushi rice cake, raw tuna marinated with soy sauce, sesame sauce and siracha.", "Arroz de sushi frito, atún crudo marinado con soya, aceite de sésamo y siracha.", 5000, 5500, "s★")
   ] },
   { en: "Specialties", es: "Especialidades", items: [
-    row("Teriyaki Chicken", "Teriyaki Bowl Artesanal", "Sushi rice, chives, chinese mustard, peanuts, onions, sesame seeds, bell pepper, broccoli, homemade teriyaki sauce.", "Arroz de sushi, cebollino, mostaza china, maní, cebolla, ajonjolí, chile dulce, brócoli, salsa teriyaki casera.", 9400, 10000),
+    row("Teriyaki Chicken", "Bowl Pollo Teriyaki Artesanal", "Sushi rice, chives, chinese mustard, peanuts, onions, sesame seeds, bell pepper, broccoli, homemade teriyaki sauce.", "Arroz de sushi, cebollino, mostaza china, maní, cebolla, ajonjolí, chile dulce, brócoli, salsa teriyaki casera.", 9400, 10000, "★"),
     row("Tuna Poke", "Poke de Atún", "Raw tuna, sushi rice, edamame, wakame, mango, avocado, sesame seeds.", "Atún crudo marinado, arroz de sushi, edamame, wakame, mango, aguacate, semillas de ajonjolí.", 9900, 10800, "s★"),
     row("Kale Salad", "Ensalada de Kale", "Quinoa, mango, cashew nuts, avocado cherry tomato, honey mustard dressing.", "Quinoa, mango, semilla de marañón, aguacate, tomate cherry, aderezo mostaza miel.", 7200, 7900, "gv"),
     row("Prime Choice Cheese Burger", "Quesoburguesa Prime Choice", "Dehydrated tomato, arugula, balsamic caramelized onions, homemade aioli, cheddar cheese.", "Tomate deshidratado, arúgula, cebollas caramelizadas, alioli casero, queso cheddar.", 14400, 15800, "★"),
@@ -166,7 +166,7 @@ if (root) {
   const price = value => value == null ? "" : Array.isArray(value)
     ? value.map(number => "₡" + number.toLocaleString("en-US")).join(" / ")
     : "₡" + value.toLocaleString("en-US");
-  const flags = { v: ["Vegetarian / vegan option available", "Vegetariano / opción vegana disponible"], s: ["Spicy", "Picante"], g: ["Gluten-friendly", "Gluten-friendly"], "★": ["Featured item", "Plato destacado"] };
+  const flags = { v: ["Vegetarian / vegan option available", "Vegetariano / opción vegana disponible"], s: ["Spicy", "Picante"], g: ["Gluten-friendly", "Gluten-friendly"], "★": ["Best Seller", "Más vendido"] };
   const renderItem = (item, section) => {
     const sectionFlags = section.excludeDefaultFlagsFor?.includes(item.en) ? "" : (section.defaultFlags || "");
     const itemFlags = [...new Set(sectionFlags + item.flags)].join("");
@@ -190,8 +190,8 @@ if (root) {
   const renderSheet = (sections, drinks) => '<div class="menu-sheet"><h2>' + escapeHtml(lead) + '</h2><div class="menu-sections">' + sections.map(renderSection).join("") + '</div>' +
     '<p class="menu-note">' + (drinks ? escapeHtml(tax) : escapeHtml(footer + " " + tax)) + "</p></div>";
   const filterLabels = spanish
-    ? { v: "Vegetariano / opción vegana", s: "Picante", g: "Gluten-friendly" }
-    : { v: "Vegetarian / vegan option", s: "Spicy", g: "Gluten-friendly" };
+    ? { v: "Vegetariano / opción vegana", s: "Picante", g: "Gluten-friendly", "★": "Más vendidos" }
+    : { v: "Vegetarian / vegan option", s: "Spicy", g: "Gluten-friendly", "★": "Best Sellers" };
   root.innerHTML = '<div class="menu-filters" role="group" aria-label="' + (spanish ? "Filtrar platos" : "Filter menu items") + '"><span class="menu-filters-label">' + (spanish ? "Filtrar por:" : "Filter by:") + '</span>' +
     Object.entries(filterLabels).map(([flag, label]) => '<button type="button" data-menu-filter="' + flag + '" aria-pressed="false">' + escapeHtml(label) + '</button>').join("") +
     '</div><p class="menu-filter-status" role="status" aria-live="polite"></p>' + renderSheet(foodSections, false) + renderSheet(drinkSections, true);
