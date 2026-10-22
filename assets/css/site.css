@@ -59,6 +59,14 @@ h1,h2,h3,h4 { color:var(--ink); font-family:Montserrat,Arial,sans-serif; line-he
 .social { display:flex; gap:1rem; margin-top:1.25rem; }
 .footer-bottom { border-top:1px solid #6c7077; display:flex; font-size:.82rem; grid-column:1/-1; justify-content:space-between; margin-top:52px; padding-top:20px; }
 .footer-bottom p { margin:0; }
+.analytics-notice { align-items:center; background:#fff; border-top:1px solid #dedbd3; bottom:0; box-shadow:0 -6px 24px rgb(30 24 16 / .12); display:flex; flex-wrap:wrap; gap:.75rem; left:0; padding:1rem max(20px,calc((100vw - 1140px) / 2)); position:fixed; right:0; z-index:100; }
+.analytics-notice p { flex:1 1 22rem; font-size:.9rem; line-height:1.4; margin:0; }
+.analytics-notice a { text-underline-offset:.2em; }
+.analytics-notice button { background:#fff; border:1px solid var(--ink); border-radius:3px; color:var(--ink); cursor:pointer; font:inherit; font-size:.8rem; line-height:1.25; min-height:44px; padding:.6rem 1rem; }
+.analytics-notice button[data-choice="accepted"] { background:var(--clay); border-color:var(--clay); color:var(--dark); font-weight:600; }
+.analytics-notice button:hover { filter:brightness(.95); }
+.analytics-notice button:focus-visible,.analytics-notice a:focus-visible { outline:2px solid var(--dark); outline-offset:2px; }
+@media (max-width:600px) { .analytics-notice { gap:.6rem; padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom)); } .analytics-notice p { flex-basis:100%; } .analytics-notice button { flex:1 1 0; } }
 .menu-page { margin:auto; max-width:1100px; padding:0 20px 55px; }
 .menu-page header { align-items:center; background:var(--clay); display:grid; gap:1.25rem; grid-template-columns:1fr auto 1fr; min-height:140px; margin:0 calc(50% - 50vw) 40px; padding:20px max(25px,calc((100vw - 1100px) / 2)); }
 .menu-page header .brand { justify-self:start; }
@@ -72,10 +80,9 @@ h1,h2,h3,h4 { color:var(--ink); font-family:Montserrat,Arial,sans-serif; line-he
 .menu-page h1 { color:var(--clay); font-size:2rem; text-align:center; }
 .menu-pages { display:grid; gap:1.5rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
 .menu-pages img { display:block; height:auto; width:100%; }
-.menu-intro { margin:0 auto 2rem; max-width:680px; text-align:center; }
 .html-menu { background:transparent; border:0; border-radius:0; color:var(--clay); margin:2rem auto; max-width:1050px; padding:0; }
 .html-menu::before { content:none; }
-.html-menu h2 { color:var(--clay); font-size:clamp(1.5rem,3vw,2.3rem); margin-bottom:.4rem; text-align:left; }
+.html-menu h2 { color:var(--clay); font-size:clamp(1.4rem,2.3vw,1.8rem); margin-bottom:.4rem; text-align:left; }
 .html-menu .menu-subtitle { font-size:1.05rem; margin:0 0 2rem; text-align:left; }
 .menu-section { margin-top:2.5rem; }
 .menu-section h3 { align-items:center; color:var(--clay); display:flex; font-size:clamp(1.35rem,3vw,2rem); gap:1rem; letter-spacing:.05em; text-transform:uppercase; }

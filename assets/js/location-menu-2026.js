@@ -73,14 +73,14 @@ const foodSections = [
 const drinkSections = [
   { en: "Cold pressed juices", es: "Jugos cold pressed", defaultFlags: "gv", enNote: "100% fruit and veggie drink with no added water.", esNote: "Jugo 100% de la fruta sin agua, ni azúcar adicional agregada.", items: [
     row("Green Machine", "Green Machine", "Kale, cucumber, green apple, ginger, celery, lime", "Kale, pepino, manzana verde, jengibre, apio, limón", 5900, 5900),
-    row("Green Candy", "Green Candy", "Pineapple, green apple, cucumber, mint", "Piña, manzana verde, pepino, hierba buena", 5900, 5900),
+    row("Green Candy", "Green Candy", "Pineapple, green apple, cucumber, mint", "Piña, manzana verde, pepino, hierba buena", 5900, 5900, "★"),
     row("Carrot Wonder", "Carrot Wonder", "Carrots, green apple, red apple, ginger, lime", "Zanahoria, manzana verde, manzana roja, jengibre, limón", 5900, 5900),
-    row("Spicy Sandía", "Spicy Sandía", "Watermelon, green apple, beet, jalapeño, mint, lime", "Sandía, manzana verde, remolacha, jalapeño, hierba buena, limón", 5900, 5900),
+    row("Spicy Sandía", "Spicy Sandía", "Watermelon, green apple, beet, jalapeño, mint, lime", "Sandía, manzana verde, remolacha, jalapeño, hierba buena, limón", 5900, 5900, "s"),
     row("Charcoal Lemonade", "Limonada de Carbón", "Activated charcoal, lime, sugar", "Carbón activado, limón, azúcar", 3300, 3300),
     row("Shot of Sunshine", "Shot of Sunshine", "Orange, lime, turmeric, ginger", "Naranja, limón, cúrcuma, jengibre", 2400, 2500)
   ] },
   { en: "Smoothies & natural drinks", es: "Smoothies y bebidas naturales", defaultFlags: "gv", enNote: "All of our milks made daily in our kitchen.", esNote: "Todas nuestras leches las preparamos cada día en nuestra cocina.", enDietNote: "Vegan option available: please request no honey and plant-based milk where listed.", esDietNote: "Opción vegana disponible: solicite sin miel y con leche vegetal donde corresponda.", items: [
-    row("Cacao Nut", "Cacao Nut", "Banana, homemade peanut butter, cacao, topping cacao nibs, homemade almond milk", "Banano, mantequilla de maní casera, cacao, leche de almendra casera, top de cacao nibs", 5500, 5900),
+    row("Cacao Nut", "Cacao Nut", "Banana, homemade peanut butter, cacao, topping cacao nibs, homemade almond milk", "Banano, mantequilla de maní casera, cacao, leche de almendra casera, top de cacao nibs", 5500, 5900, "★"),
     row("Mango Passion", "Mango Passion", "Mango, passion fruit, turmeric, homemade coconut milk, honey", "Mango, maracuyá, cúrcuma, leche de coco casera, miel", 5500, 5900),
     row("Coco Chía", "Coco Chía", "Chia, mango, vanilla, homemade coconut milk, honey", "Chía, mango, vainilla, leche de coco casera, miel", 5500, 5900),
     row("Pink Lady", "Pink Lady", "Dragon fruit, mango, homemade coconut milk, honey", "Pitaya, mango, leche de coco casera, miel", 5500, 5900, "★"),
@@ -96,7 +96,7 @@ const drinkSections = [
   { en: "Mixology", es: "Mixología", defaultFlags: "gv", excludeDefaultFlagsFor: ["Heineken", "Corona", "Craft beer:", "Guana - Red IPA", "Playa Grande - Summer Ale, Official Pots & Bowls Beer", "Zarpeazul - Lager"], items: [
     row("Mimosa", "Mimosa", "", "", 4900, 4900),
     row("Carajillo", "Carajillo", "Licor 43, espresso shot, sugar", "Licor 43, shot de espresso, jarabe de azúcar", 7000, 7000),
-    row("Passion Fruit Spicy Margarita", "Margarita Picante de Maracuyá", "Jalapeño infused tequila, passion fruit, jalapeño spicy salt", "Tequila infusionado con jalapeño, maracuyá, sal picante de jalapeño", 6600, 6600, "★"),
+    row("Passion Fruit Spicy Margarita", "Margarita Picante de Maracuyá", "Jalapeño infused tequila, passion fruit, jalapeño spicy salt", "Tequila infusionado con jalapeño, maracuyá, sal picante de jalapeño", 6600, 6600, "s★"),
     row("Aperol Spritz", "Aperol Spritz", "", "", 7900, 7900),
     row("Blackberry Gin & Tonic", "Mora Gin & Tonic", "", "", 5900, 5900),
     row("Strawberry Mojito", "Mojito de Fresa", "", "", 5900, 5900),
@@ -151,7 +151,7 @@ const drinkSections = [
     row("Coca Cola", "Coca Cola", "", "", 2200, 2200)
   ] },
   { en: "Wine", es: "Vino", defaultFlags: "gv", wine: true, items: [
-    row("Le Petit Connetable", "Le Petit Connetable", "Sauvignon Blanc. France", "Sauvignon Blanc. Francia", [6600, 25800], [6600, 25800]),
+    row("Le Petit Connetable", "Le Petit Connetable", "Sauvignon Blanc. France", "Sauvignon Blanc. Francia", [6600, 25800], [6600, 25800], "★"),
     row("Sottan Junior", "Sottan Junior", "Chardonnay. Argentina", "Chardonnay. Argentina", [6200, 24300], [6200, 24300], "", null, { name: "Sottano Junior" }),
     row("Luis Alegre Crianza", "Luis Alegre Crianza", "Tempranillo. Spain", "Tempranillo. España", [6600, 26100], [6600, 26100]),
     row("Ramirana", "Ramirana", "Merlot. Chile", "Merlot. Chile", [6200, 24300], [6200, 24300])
@@ -174,7 +174,7 @@ if (root) {
     const description = catalinas && item.catalinasText[spanish ? "esDescription" : "enDescription"] || (spanish ? item.esDescription : item.enDescription);
     const badges = [...itemFlags].map(flag => {
       const label = flag === "v" && section.vegetarianOnly ? (spanish ? "Vegetariano" : "Vegetarian") : flags[flag][spanish ? 1 : 0];
-      return '<span class="menu-badge" title="' + escapeHtml(label) + '" aria-label="' + escapeHtml(label) + '">' + flag.toUpperCase() + "</span>";
+      return '<span class="menu-badge" title="' + escapeHtml(label) + '" aria-label="' + escapeHtml(label) + '">' + (flag === "s" && spanish ? "P" : flag.toUpperCase()) + "</span>";
     }).join("");
     const name = catalinas && item.catalinasText.name ? item.catalinasText.name : (spanish ? item.es : item.en);
     return '<article class="menu-item" data-flags="' + escapeHtml(itemFlags) + '"><h4><span class="menu-item-name">' + escapeHtml(name) + badges + '</span>' + (printedPrice == null ? "" : '<span class="menu-item-price">' + escapeHtml(price(printedPrice)) + "</span>") + "</h4>" + (description ? "<p>" + escapeHtml(description) + "</p>" : "") + "</article>";
@@ -190,10 +190,10 @@ if (root) {
   const renderSheet = (sections, drinks) => '<div class="menu-sheet"><h2>' + escapeHtml(lead) + '</h2><div class="menu-sections">' + sections.map(renderSection).join("") + '</div>' +
     '<p class="menu-note">' + (drinks ? escapeHtml(tax) : escapeHtml(footer + " " + tax)) + "</p></div>";
   const filterLabels = spanish
-    ? { v: "Vegetariano / opción vegana", s: "Picante", g: "Gluten-friendly", "★": "Más vendidos" }
-    : { v: "Vegetarian / vegan option", s: "Spicy", g: "Gluten-friendly", "★": "Best Sellers" };
+    ? { "★": "Más vendidos", v: "Vegetariano / opción vegana", g: "Gluten-friendly", all: "Todos" }
+    : { "★": "Best Sellers", v: "Vegetarian / vegan option", g: "Gluten-friendly", all: "All" };
   root.innerHTML = '<div class="menu-filters" role="group" aria-label="' + (spanish ? "Filtrar platos" : "Filter menu items") + '"><span class="menu-filters-label">' + (spanish ? "Filtrar por:" : "Filter by:") + '</span>' +
-    Object.entries(filterLabels).map(([flag, label]) => '<button type="button" data-menu-filter="' + flag + '" aria-pressed="false">' + escapeHtml(label) + '</button>').join("") +
+    Object.entries(filterLabels).map(([flag, label]) => '<button type="button" data-menu-filter="' + flag + '" aria-pressed="' + (flag === "all") + '">' + escapeHtml(label) + '</button>').join("") +
     '</div><p class="menu-filter-status" role="status" aria-live="polite"></p>' + renderSheet(foodSections, false) + renderSheet(drinkSections, true);
   const buttons = [...root.querySelectorAll("[data-menu-filter]")];
   const items = [...root.querySelectorAll(".menu-item")];
@@ -202,7 +202,7 @@ if (root) {
     const selected = buttons.find(button => button.getAttribute("aria-pressed") === "true")?.dataset.menuFilter;
     let visible = 0;
     items.forEach(item => {
-      item.hidden = Boolean(selected && !item.dataset.flags.includes(selected));
+      item.hidden = Boolean(selected !== "all" && !item.dataset.flags.includes(selected));
       if (!item.hidden) visible++;
     });
     root.querySelectorAll(".menu-section").forEach(section => {
@@ -211,13 +211,12 @@ if (root) {
     root.querySelectorAll(".menu-sheet").forEach(sheet => {
       sheet.hidden = !sheet.querySelector(".menu-item:not([hidden])");
     });
-    status.textContent = selected
+    status.textContent = selected !== "all"
       ? (visible ? (spanish ? `Mostrando ${visible} ${visible === 1 ? "opción" : "opciones"}.` : `Showing ${visible} ${visible === 1 ? "item" : "items"}.`) : (spanish ? "No hay opciones que coincidan con estos filtros." : "No items match these filters."))
       : (spanish ? "Mostrando todo el menú." : "Showing the full menu.");
   };
   buttons.forEach(button => button.addEventListener("click", () => {
-    const activate = button.getAttribute("aria-pressed") !== "true";
-    buttons.forEach(other => other.setAttribute("aria-pressed", String(activate && other === button)));
+    buttons.forEach(other => other.setAttribute("aria-pressed", String(other === button)));
     applyFilters();
   }));
   applyFilters();
